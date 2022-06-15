@@ -1,0 +1,91 @@
+<div class="vistanavegacion">
+  <div class="rrss">
+    <a style="color:white" href="https://twitter.com/verazdiario" title="Síguenos en Twitter"><i
+        class="fa-brands fa-twitter"></i></a>
+    <a style="color:white" href="https://www.instagram.com/verazdiario/" title="Síguenos en Instagram"><i
+        class="fa-brands fa-instagram"></i></a>
+    <a style="color:white" href="/sobre-nosotros"><i class="fa-solid fa-envelope" title="Contacta con nosotros"></i></a>
+    <a style="color:white" href="https://www.linkedin.com/in/sergio-lopez-alvarez" title="Síguenos en LinkedIn"><i
+        class="fa-brands fa-linkedin-in"></i></a>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a href="/inicio" style="width:100px"><img class="logotipo rounded-circle" style="width:50px; height:50px;"
+          src="/imagenes/veraz.jpg" alt="Logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="text-align:center">
+          <li class="nav-item">
+            <a id="inicio" class="nav-link" aria-current="page" href="/inicio" title="Acceder al menú principal">INICIO</a>
+          </li>
+          <li class="nav-item">
+            <a id="noticias" class="nav-link" aria-current="page" href="/noticias" title="Acceder a la sección principal de noticias">NOTICIAS</a>
+          </li>
+          <li class="nav-item">
+            <a id="nacional" class="nav-link" href="/noticias/nacional" title="Acceder a la categoría Nacional">NACIONAL</a>
+          </li>
+          <li class="nav-item">
+            <a id="internacional" class="nav-link" href="/noticias/internacional" title="Acceder a la categoría Internacional">INTERNACIONAL</a>
+          </li>
+          <li class="nav-item">
+            <a id="deportes" class="nav-link" href="/noticias/deportes" title="Acceder a la categoría Deportes">DEPORTES</a>
+          </li>
+
+
+          <li class="nav-item dropdown">
+            <a id="nosotros" title="Nosotros" class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Nosotros
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin:auto;text-align:center">
+              <li><a id="quiensomos" class="dropdown-item" href="/sobre-nosotros" title="¿Conoce quién somos?">Quién somos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a id="rrss" class="dropdown-item" href="/redes-sociales" title="¡Síguenos en redes ahora!">Redes sociales</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <p></p>
+
+
+        <ul class="navbar-nav ml-auto" style="margin:auto;text-align:center">
+          {{#if user}}
+          <li class="nav-item">
+
+          <li id="perfil" class="nav-item"><a href="/usuarios/perfil" title="Accede a tu área personal, {{user.nombre}}" class="nav-link">¡Hola {{user.nomusuario}}!</a>
+          </li>
+          <a href="/usuarios/cerrar-sesion" title="Cierra la sesión" class="nav-link" style="text-align:center">CERRAR SESIÓN</a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a id="iniciarsesion" href="/usuarios/iniciar-sesion" title="Inicia sesión" class="nav-link">Iniciar sesión</a>
+          </li>
+          <li class="nav-item"><a id="registro" href="/usuarios/registro" title="Regístrate ahora" class="nav-link">Registro</a></li>
+
+          {{/if}}
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+</div>
+<div class="news-wrapper">
+  <ul class="footer-item">
+    {{#each noticias}}
+    <li class="news-item"><strong style="text-transform:uppercase"><a style="color:white;text-decoration:none"
+          href="/noticias/{{categoria}}">{{categoria}}: </a></strong><a style="color:white;text-decoration:none"
+        href="/noticias/leer-noticia/{{_id}}">{{titular}}</a></li>
+    &nbsp;&nbsp;/&nbsp;&nbsp;
+    {{/each}}
+    <li class="news-item">Más información en nuestra web de noticias</li>
+  </ul>
+</div>

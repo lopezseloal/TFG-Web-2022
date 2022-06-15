@@ -1,0 +1,98 @@
+{{#if user.admin}}
+
+<div class="row">
+    <a style="color:white;text-decoration:none;text-align:center" href="/noticias/nueva-noticia"><button
+            class="btn btn-success w-100" type="submit">Publicar noticia</button></a></button>
+    <br><br>
+    {{#each noticias}}
+    {{#if deportes}}
+    <div class="col-md-3">
+        <div class="card" style="margin-bottom:50px;height:auto;box-shadow: 7px 7px 7px rgb(0,0,0,0.5);">
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a style="color:black;text-decoration:none;" href="/noticias/leer-noticia/{{_id}}">{{titular}}</a>
+                    <a style="color:rgb(9,5,73)" href="/noticias/editar-noticia/{{_id}}" title="Editar noticia"><i class="fas fa-edit"></i>
+                    </a>
+                </h4>
+
+                <br>
+
+                <p>{{subtitulo}}</p>
+
+                <a href="/noticias/leer-noticia/{{_id}}">
+                    <div style="text-align:center;height:400px;background:url('../imagenes/{{imagen}}');background-size:cover;background-repeat:no-repeat;background-position:center center"
+                        title="{{titular}}">
+                    </div>
+                </a>
+
+
+            </div>
+        </div>
+        <form action="/noticias/eliminar/{{_id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="ELIMINAR">
+            <button class="btn btn-danger btn-block w-100" type="submit" title="Eliminar noticia">Eliminar
+                noticia</button>
+        </form>
+
+        <br><br>
+    </div>
+
+    {{/if}}
+    {{else}}
+    <div class="card mx-auto">
+        <div class="card-body">
+            <p class="lead">No hay ninguna noticia disponible</p>
+            <a href="/noticias/nueva-noticia" class="btn btn-success btn-block">Publicar una noticia</a>
+        </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <div class="row">
+        {{#each noticias}}
+        {{#if deportes}}
+        <div class="col-md-3">
+            <div class="card" style="margin-bottom:50px;height:auto;box-shadow: 7px 7px 7px rgb(0,0,0,0.5);">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a style="color:black;text-decoration:none;"
+                            href="/noticias/leer-noticia/{{_id}}">{{titular}}</a>
+                    </h4>
+
+                    <br>
+
+                    <p>{{subtitulo}}</p>
+
+                    <a href="/noticias/leer-noticia/{{_id}}">
+                        <div
+                            style="text-align:center;height:400px;background:url('../imagenes/{{imagen}}');background-size:cover;background-repeat:no-repeat;background-position:center center">
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        {{else}}
+        <div class="card mx-auto">
+            <div class="card-body">
+                <p class="lead">No hay ninguna noticia disponible</p>
+            </div>
+        </div>
+        {{/each}}
+
+        {{/if}}
+
+
+        <!--ESTILOS Y SCRIPTS-->
+        <script>
+            window.onload = function () {
+                document.getElementById('deportes').style.fontWeight = 'bold';
+                document.getElementById('deportes').style.textDecoration = 'overline';
+
+            }
+        </script>
+        <style>
+            .news-wrapper {
+                display: none;
+            }
+        </style>

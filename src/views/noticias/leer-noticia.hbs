@@ -1,0 +1,71 @@
+{{#if user.admin}}
+<div class="col-md-6 w-100">
+    <div class="card" style="box-shadow: 7px 7px 7px rgb(0,0,0,0.5);">
+        <div class="card-body">
+            <div class="card-header">
+
+                <h4 class="card-title">{{noticia.titular}} <a style="color:rgb(9,5,73)"
+                        href="/noticias/editar-noticia/{{noticia._id}}" title="Editar noticia"><i
+                            class="fas fa-edit"></i></a><a style="position:absolute;right:20px;" href="../"
+                        title="Volver"><i style="color:#041041" class="fa-solid fa-circle-chevron-left"></i></a></h4>
+
+                <p style="font-weight:600">{{noticia.subtitulo}}</p>
+
+                <div class="imagen">
+                    <img style="width:50%; padding:20px 20px 20px 0px; float:left"
+                        src="../../imagenes/{{noticia.imagen}}" alt="{{noticia.titular}}"
+                        title="{{noticia.titular}}"></img>
+
+                </div>
+
+                <p style="line-height:200%;">{{noticia.descripcion}}</p>
+
+            </div>
+        </div>
+    </div>
+    <form action="/noticias/eliminar/{{noticia._id}}?_method=DELETE" method="POST">
+        <input type="hidden" name="_method" value="ELIMINAR">
+        <button class="btn btn-danger btn-block w-100" type="submit" title="Eliminar noticia">Eliminar noticia</button>
+    </form>
+</div>
+{{else}}
+<div class="col-md-6 w-100">
+    <div class="card" style="box-shadow: 7px 7px 7px rgb(0,0,0,0.5);">
+        <div class="card-body">
+            <div class="card-header">
+
+                <h4 class="card-title">{{noticia.titular}}<a style="position:absolute;right:20px;" href="../"
+                        title="Volver"><i style="color:#041041" class="fa-solid fa-circle-chevron-left"></i></a></h4>
+
+                <p style="font-weight:600">{{noticia.subtitulo}}</p>
+
+                <div class="imagen">
+                    <img style="width:50%; padding:20px 20px 20px 0px; float:left"
+                        src="../../imagenes/{{noticia.imagen}}" alt="{{noticia.titular}}"
+                        title="{{noticia.titular}}"></img>
+
+                </div>
+
+                <p style="line-height:200%;">{{noticia.descripcion}}</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+<!--ESTILOS Y SCRIPTS-->
+<style>
+    @import url('../../public/css/leer-noticia.css');
+</style>
+
+<script>
+    window.onload = function () {
+        document.getElementById('noticias').style.fontWeight = 'bold';
+        document.getElementById('noticias').style.textDecoration = 'overline';
+    }
+</script>
+<style>
+    .news-wrapper {
+        display: none;
+    }
+</style>

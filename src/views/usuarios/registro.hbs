@@ -1,0 +1,86 @@
+
+
+<div class="vistaregistro">
+    {{#if user}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta http-equiv="Refresh" content="0;url=/usuarios/perfil"/>
+    </head>
+    </html>
+{{else}}
+<div class="row">
+    <div class="col-md-6 mx-auto text-center">
+        <div class="card">
+           <div class="card-header">
+                <h1>REGISTRO</h1>
+            </div>
+            <img class="logotipo rounded-circle mx-auto d-block m-4" src="/imagenes/veraz.jpg" alt="Logo" style="width:20%">
+
+            <div class="card-body">
+                <form action="/usuarios/registro" method="POST">
+                    <div class="mt-3">
+                        <input type="text" class="form-control" name="nombre" placeholder="Inserta tu nombre y apellidos" value="{{nombre}}">
+                    </div>
+
+                    <br>
+
+                    <div class="mt-3">
+                        <input type="text" class="form-control" name="nomusuario" placeholder="Inserta tu usuario" value="{{nomusuario}}">
+                    </div>
+
+                      <br>
+
+                    <div class="mt-3">
+                        <input type="email" class="form-control" name="email" placeholder="Inserta tu email" value="{{email}}">
+                    </div>
+
+                    <br>
+
+                    <div class="mt-3">
+                        <input type="password" class="form-control" name="clave" placeholder="Inserta tu clave" value="{{clave}}">
+                    </div>
+
+                      <br>
+
+                    <div class="mt-3">
+                        <input type="password" class="form-control" name="confclave" placeholder="Confirma tu clave" value="{{confclave}}">
+                    </div>
+
+                      <br>
+
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary w-100">
+                            Registrarse
+                        </button>
+                    </div>
+                    
+                    <br> 
+                    
+                    <a href="/usuarios/iniciar-sesion">¿Ya tienes una cuenta? Inicia sesión</a>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{{/if}}
+</div>
+
+
+<!--ESTILOS Y SCRIPTS-->
+
+<script>
+     window.onload = function(){
+      document.getElementById('registro').style.fontWeight = 'bold';
+       document.getElementById('registro').style.textDecoration = 'overline';
+    
+    }
+</script>
+
+<style>
+    .news-wrapper{
+        display:none;
+    }
+</style>

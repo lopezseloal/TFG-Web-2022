@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+</head>
+
+<body>
+    <div class="sobre-nosotros">
+        <h1>QUIÉN SOMOS<a style="position:absolute;right:20px;" href="../noticias" title="Volver"><i style="color:white;border-radius:100%;background-color:rgb(9,5,73)" class="fa-solid fa-circle-chevron-left"></i></a></h1>
+        <form>
+            <fieldset>
+
+                <p>
+Los objetivos de este trabajo son los siguientes: Ofrecer al usuario noticias destacadas del momento, a través de diferentes temáticas.
+Elaborar un portal de información completo, intuitivo, atractivo, accesible y con una buena usabilidad.
+Adaptar el sitio web a distintos dispositivos, como ordenadores o móviles. Opciones de inicio de sesión, registro y contacto. Vinculación directa a las redes sociales de la empresa. Facilitar a los empleados un área e interfaz adaptados para publicar y editar las noticias. Proporcionar diferentes vistas y permisos de acceso en función del rol del usuario, sea anónimo, usuario registrado o administrador.
+<br><br>
+Los objetivos de este trabajo son los siguientes: Ofrecer al usuario noticias destacadas del momento, a través de diferentes temáticas.
+Elaborar un portal de información completo, intuitivo, atractivo, accesible y con una buena usabilidad.
+Adaptar el sitio web a distintos dispositivos, como ordenadores o móviles. Opciones de inicio de sesión, registro y contacto. Vinculación directa a las redes sociales de la empresa. Facilitar a los empleados un área e interfaz adaptados para publicar y editar las noticias. Proporcionar diferentes vistas y permisos de acceso en función del rol del usuario, sea anónimo, usuario registrado o administrador.
+
+</p>
+
+            <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2346.047521861584!2d-5.647821352677311!3d43.533678445004924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1644583959887!5m2!1ses!2ses"
+                    width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </fieldset>
+
+        </form>
+        <h1>CONTACTA CON NOSOTROS</h1>
+        <div class="contact">
+            <fieldset>
+                <img src="../imagenes/tunivers.jpg" alt="">
+
+                <div class="u-wrapper">
+                    <div class="contact-content">
+                        <form action="" id="form" class="form">
+                            <label for="name">Nombre y apellidos <span>*</span></label><br>
+                            <input name="name" required type="text" id="name"
+                                placeholder="Inserte aquí su nombre"><br><br>
+                            <label for="email">Correo electrónico <span>*</span></label><br>
+                            <input type="text" name="email" id="email" required
+                                placeholder="Inserte aquí su correo electrónico"><br><br>
+                            <label for="message">Mensaje</label><br>
+                            <textarea name="message" id="message" cols="100" rows="10"
+                                placeholder="Inserte aquí su mensaje"></textarea><br>
+                            <button type="submit" class="btn btn-primary">Enviar mensaje</button> &nbsp;
+                            <label style="font-size:13px">* Requiere de perfil de Outlook</label>
+                        </form>
+
+                        <a href="mailto:lopezseloal@gmail.com" id="correo"></a>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+    </div>
+
+    </div>
+</body>
+
+
+<script>
+    const $form = document.querySelector('#form');
+    const $buttonMailTo = document.querySelector('#correo');
+
+    $form.addEventListener('submit', handleSubmit);
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        const form = new FormData(this);
+        console.log(form.get('name'));
+        $buttonMailTo.setAttribute('href', `mailto:lopezseloal@gmail.com?subject=${form.get('name')} - ${form.get('email')}&body=${form.get('message')}`);
+        $buttonMailTo.click();
+    }
+    
+    window.onload = function () {
+            document.getElementById('nosotros').style.fontWeight = 'bold';
+            document.getElementById('nosotros').style.textDecoration = 'overline';
+            document.getElementById('quiensomos').style.fontWeight = 'bold';
+
+        }
+</script> 
+
+    <style>
+        @import url('../css/sobre-nosotros.css');
+    </style>
+
+   
+    <style>
+    .news-wrapper{
+        display:none;
+    }
+</style>
+
+
+</html>

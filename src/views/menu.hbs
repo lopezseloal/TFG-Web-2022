@@ -1,0 +1,82 @@
+<script>
+    window.onload = function () {
+        document.getElementById('inicio').style.fontWeight = '900';
+        document.getElementById('inicio').style.textDecoration = 'overline';
+    }
+</script>
+
+<style>
+    .news-wrapper {
+        display: none;
+    }
+</style>
+
+<div class="menu">
+    <div style="width:70%;margin:auto" id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {{#each noticias}}
+            {{#if @first}}
+            <div class="carousel-item active" data-bs-interval="6000">
+                {{else}}
+                <div class="carousel-item" data-bs-interval="6000">
+                    {{/if}}
+                    <a style="color:black;text-decoration:none;" href="/noticias/leer-noticia/{{_id}}">
+                        <div>
+                            <img src="../imagenes/{{imagen}}" class="d-block w-100" alt="{{titular}}"
+                                title="{{titular}}">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 style="padding:0px;text-transform:uppercase;background-color:rgb(0,0,0,0.5)">{{titular}}</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{/each}}
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+{{#if user}}
+        <div class="texto_portada" style="margin-top:13%">
+
+        <a style="color:white;text-decoration:none;width:100%;height:100%;" href="/noticias"
+            class="w-100">
+            <button id="infoact" type="submit" class="btn btn-success w-100" style="font-weight:bold;font-size:24px;">TODA LA INFORMACIÓN DE ACTUALIDAD</button>
+        </a>
+</div>
+{{else}}
+
+    <div class="texto_portada" style="margin-top:13%">
+        <h2 style="width:100%;color:white;text-align:center">
+            DISFRUTA DE LA MEJOR INFORMACIÓN DEL MOMENTO
+        </h2>
+        <br>
+
+        <a style="color:white;text-decoration:none;width:100%;height:100%;" href="/usuarios/iniciar-sesion"
+            class="w-100">
+            <button type="submit" class="btn btn-success w-100" style="font-weight:bold;font-size:28px">INCIAR SESIÓN</button>
+        </a>
+
+        <br><br>
+
+ <p style="width:100%;color:white;">
+            Para poder acceder a la totalidad de los contenidos de la
+            web, deberá iniciar sesión con su cuenta personal, desde la que podrá leer las noticias. Si no dispone de una, puede crear
+            una cuenta en menos de un minuto.
+            
+            En 'El Veraz' podrás estar al día de todo lo que acontezca a nivel nacional e internacional, con información detallada las 
+            24 horas, distintas categorías, área personal, sección de contacto y muy pronto... podrás acceder a servicios premium,
+            así como a multitud de mejoras en las funcionalidades, diseño y contenidos del sitio web.
+        </p>
+</div>
+{{/if}}
+    </div>

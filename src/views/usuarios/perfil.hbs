@@ -1,0 +1,96 @@
+
+
+<div class="vistaperfil">
+    {{#if user}}
+    {{#if user.admin}}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <h1>Bienvenido {{user.nombre}}<a id="volver" style="position:absolute;right:20px;" href="/noticias"  title="Volver"><i style="color:white;border-radius:100%;background-color:rgb(9,5,73)" class="fa-solid fa-circle-chevron-left"></i></a></h1>
+                <h6 style="color:white">Desde esta sección podrás publicar artículos y editar tu información personal</h6>
+                <form action="/usuarios/perfil" class="form-horizontal" method="post">
+                    <p>Tu nombre y apellidos <input style="background-color:white;color:black" class="input" type="text" value="{{user.nombre}}" disabled></input></p>
+                    <p>Tu usuario <input style="background-color:white;color:black" class="input" type="text" value="{{user.nomusuario}}" disabled></input></p>
+                    <p>Tu correo electrónico <input style="background-color:white;color:black" class="input" type="text" value="{{user.email}}" disabled></input></p>
+                    <p>Tu clave cifrada: <input style="background-color:white;color:black" class="input" type="password" value="{{user.clave}}" disabled></input></p>
+                </form>
+
+
+            <div style="text-align:center">
+
+                <a style="color:white;text-decoration:none" href="/noticias/nueva-noticia"><button
+                        class="btn btn-success w-50" type="submit">Publicar noticia</button></a></button>
+
+                        <br><br>
+
+                <a style="color:white;text-decoration:none;"
+                    href="/usuarios/perfil/editar-perfil/{{user._id}}" class="w-100">
+                    <button type="submit" class="btn btn-success w-50">Editar perfil</button>
+                </a>
+                            
+            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="row">
+    <div class="col-md-12">
+        <div class="well well-sm">
+            <h1>Bienvenido {{user.nombre}}<a id="volver" style="position:absolute;right:20px;" href="/noticias"  title="Volver"><i style="color:white;border-radius:100%;background-color:rgb(9,5,73)" class="fa-solid fa-circle-chevron-left"></i></a></h1>
+            <h6 style="color:white">Desde esta sección podrás editar tu información personal y si lo deseas, eliminar tu cuenta permanentemente</h6>
+            <form action="/usuarios/perfil" class="form-horizontal" method="post">
+                <p>Tu nombre y apellidos <input style="background-color:white;color:black" type="text" class="input" value="{{user.nombre}}" disabled></input></p>
+                <p>Tu usuario <input style="background-color:white;color:black" type="text" class="input" value="{{user.nomusuario}}" disabled></input></p>
+                <p>Tu correo electrónico <input style="background-color:white;color:black" class="input" type="text" value="{{user.email}}" disabled></input></p>
+                <p>Tu clave: <input style="background-color:white;color:black" type="password" class="input" value="{{user.clave}}" disabled></input></p>
+            </form>
+
+            <div class="botonesPerfil">
+                <a href="/usuarios/perfil/editar-perfil/{{user._id}}">
+                    <button class="btn btn-primary w-50" type="submit">Editar perfil</button>
+                </a>
+
+                <br><br>
+
+                <form action="/usuarios/eliminar/{{user._id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="ELIMINAR">&nbsp;
+                    <button class="btn btn-danger w-50" type="submit">Eliminar perfil</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{{/if}}
+{{else}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Refresh" content="0;url=/usuarios/iniciar-sesion" />
+</head>
+
+<body>
+
+</body>
+
+</html>
+{{/if}}
+</div>
+
+
+<!--ESTILOS Y SCRIPTS-->
+<script>
+        window.onload = function () {
+            document.getElementById('perfil').style.fontWeight = 'bold';
+            document.getElementById('perfil').style.textDecoration = 'overline';
+        }
+</script>
+
+<style>
+    .news-wrapper{
+        display:none;
+    }
+</style>

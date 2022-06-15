@@ -1,0 +1,88 @@
+<div class="vistanuevanoticia">
+
+    {{#if user}}
+    {{#if user.admin}}
+    <div class="col-md-6 mx-auto w-100" style="margin:20px">
+        <div class="card">
+            <div class="card-header">
+                <h3>PUBLICAR NOTICIA<a id="volver" style="position:absolute;right:20px;" href="../"><i style="color:rgb(9,5,73)"
+                            class="fa-solid fa-circle-chevron-left"></i></a></h3>
+            </div>
+            <div class="card-body">
+                <form action="/noticias/nueva-noticia" method="POST">
+                    <div class="mt-3">
+                        <strong>TITULAR</strong>&nbsp;<small>(150 caracteres máx.)</small>
+                        <input type="text" name="titular" class="form-control"
+                            placeholder="Inserte aquí el titular de la noticia" autofocus value="{{titular}}">
+                    </div>
+
+                    <br>
+
+                    <div class="mt-3">
+                        <strong>SUBTÍTULO</strong>&nbsp;<small>(250 caracteres máx.)</small>
+                        <input type="text" name="subtitulo" class="form-control"
+                            placeholder="Inserte aquí el subtítulo de la noticia" value="{{subtitulo}}">
+                    </div>
+
+                    <br>
+
+                    <div class="mt-3">
+                        <strong>DESCRIPCIÓN</strong>
+                        <textarea name="descripcion" class="form-control"
+                            placeholder="Inserte aquí el contenido de la noticia" rows="7">{{descripcion}}</textarea>
+                    </div>
+
+                    <br>
+
+
+                    <div class="mt-3">
+                        <strong>CATEGORÍA</strong>&nbsp;<small>(Nacional, Internacional o Deportes)</small>
+                        <input id="categoria" type="text" name="categoria" class="form-control"
+                            placeholder="Inserte aquí la categoria de la noticia" value="{{categoria}}">
+                    </div>
+
+                    <br><br>
+
+
+                    <div class="drag-drop">
+                        <strong>SUBE UN ARCHIVO</strong>&nbsp;<small>(la foto debe estar guardada en la carpeta «imagenes» del proyecto)</small><br>
+                        <input type="file" name="imagen" />
+                        <span class="fa-stack fa-2x">
+                        </span>
+                    </div>
+
+                    <br>
+
+                    <div class="mt-3">
+                        <button class="btn btn-primary w-100" type="submit">Publicar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta http-equiv="Refresh" content="0;url=/noticias" />
+    </head>
+
+    <body>
+
+    </body>
+
+    </html>
+    {{/if}}
+
+
+
+    {{/if}}
+</div>
+
+<!--ESTILOS Y SCRIPTS-->
+<style>
+    .news-wrapper {
+        display: none;
+    }
+</style>

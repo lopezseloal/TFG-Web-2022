@@ -1,0 +1,74 @@
+{{#if user.admin}}
+<divclass="col-md-6 mx-auto w-100" style="margin:20px">
+    <div class="card">
+        <div class="card-header">
+            <h3>EDITAR NOTICIA<a style="position:absolute;right:20px;" href="../"><i style="color:rgb(9,5,73)"
+                        class="fa-solid fa-circle-chevron-left"></i></a></h3>
+        </div>
+        <div class="card-body">
+            <form action="/noticias/editar-noticia/{{noticia._id}}?_method=PUT" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+                <div class="mt-3">
+                    <strong>TITULAR</strong>&nbsp;<small>(150 caracteres máx)</small>
+                    <input type="text" name="titular" class="form-control" placeholder="Titular"
+                        value="{{noticia.titular}}">
+                </div>
+
+                <br>
+
+                <div class="mt-3">
+                    <strong>SUBTITULO</strong>&nbsp;<small>(250 caracteres máx)</small>
+                    <input type="text" name="subtitulo" class="form-control" placeholder="Subtítulo"
+                        value="{{noticia.subtitulo}}">
+                </div>
+
+                <br>
+
+                <div class="mt-3">
+                    <strong>DESCRIPCIÓN</strong> <textarea name="descripcion" class="form-control" rows="10"
+                        placeholder="Descripción">{{noticia.descripcion}}</textarea>
+                </div>
+
+                <br>
+
+                <div class="mt-3">
+                    <strong>CATEGORÍA</strong>&nbsp;<small>(Nacional, Internacional o Deportes)</small>
+                    <input type="text" name="categoria" class="form-control"
+                        placeholder="Inserte aquí la categoría de la noticia" value="{{noticia.categoria}}">
+                </div>
+
+
+                <br>
+                   <strong>SUBE UN ARCHIVO</strong>&nbsp;<small>(la foto debe estar guardada en la carpeta «imagenes» del proyecto)</small><br>
+                <input type="file" name="imagen" alt="{{noticia.imagen}}">
+
+                <br>
+
+                <div class="mt-3">
+                    <button class="btn btn-primary w-100" type="submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    {{else}}
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta http-equiv="Refresh" content="0;url=/noticias" />
+    </head>
+
+    <body>
+
+    </body>
+
+    </html>
+    {{/if}}
+    <!--ESTILOS Y SCRIPTS-->
+    <style>
+        .news-wrapper {
+            display: none;
+        }
+    </style>
